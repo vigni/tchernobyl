@@ -21,6 +21,7 @@ final class CustomerSubscriber implements EventSubscriber {
             if($entity instanceof Customer){
                 if(!$entity->getCompany()){
                     $entity->setCompany("MentalWorks");
+                    
                 }
             }
         }
