@@ -21,7 +21,14 @@ final class CustomerSubscriber implements EventSubscriber {
             if($entity instanceof Customer){
                 if(!$entity->getCompany()){
                     $entity->setCompany("MentalWorks");
-                    
+                }
+            }
+        }
+        public function prePersist(LifecycleEventArgs $args): void {
+            $entity = $args->getEntity();
+            if($entity instanceof Customer){
+                if(!$entity->getCompany()){
+                    $entity->setCompany("MentalWorks");
                 }
             }
         }
