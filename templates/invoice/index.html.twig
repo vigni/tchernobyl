@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% import "invoice/_card.html.twig" as card %}
+{% use "invoice/blocks.html.twig"%}
+
+{% block body %}
+    <h1>Invoice index</h1>
+
+    <table class="table">
+        <the:
+        {% for invoice in invoices %}
+            {{ card.render(invoice.id, invoice.chrono, invoice.amount) }}
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('invoice_new') }}">Create new</a>
+{% endblock %}
